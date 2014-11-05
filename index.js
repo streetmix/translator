@@ -24,8 +24,8 @@ if (!process.env.TRANSIFEX_USERNAME || !process.env.TRANSIFEX_PASSWORD) {
 
 var token = btoa(process.env.TRANSIFEX_USERNAME + ':' + process.env.TRANSIFEX_PASSWORD)
 
-var locale = 'de'
 var languageAPI = baseAPI + 'project/streetmix/languages/'
+var resourceSlug = 'main'
 
 // If arguments given, process those instead of all
 if (args && args.length > 0) {
@@ -67,7 +67,7 @@ request
 
 
 function getTranslation (locale) {
-  var translationAPI = baseAPI + 'project/streetmix/resource/app/translation/' + locale + '/'
+  var translationAPI = baseAPI + 'project/streetmix/resource/' + resourceSlug + '/translation/' + locale + '/'
 
   // path for Streetmix front-end
   var localePath = locale.replace(/@|_/, '-')
